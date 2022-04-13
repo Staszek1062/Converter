@@ -1,6 +1,4 @@
 package converter.Parts_combined;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class BinTo {
      public final String[] binTo(final int binaryNumber) {

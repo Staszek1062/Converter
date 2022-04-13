@@ -1,5 +1,5 @@
 package converter.Parts_combined;
-import java.lang.reflect.Array;
+
 
 public class DecTo {
     public final String[] decTo(final int decimalNumber) {
@@ -13,13 +13,13 @@ public class DecTo {
         int i = 1;
         int j;
         String s = "";
-         quot= decimalNumber;
+         quot = decimalNumber;
          while (quot != 0) {
             binaryNumber[i++] = quot % 2;
             quot = quot / 2;
          }
-         for(j=i-1; j>0; j--)
-         s+=binaryNumber[j];
+         for (j = i - 1; j > 0; j--)
+         s += binaryNumber[j];
          return s;
 
     }
@@ -35,8 +35,9 @@ public class DecTo {
             octalNumber[i++] = quot % 8;
             quot = quot / 8;
           }
-          for(j=i-1; j>0; j--)
-          s+= octalNumber[j];
+          for (j = i - 1; j > 0; j--) {
+            s += octalNumber[j];
+          }
           return s;
     }
 

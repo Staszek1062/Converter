@@ -6,14 +6,14 @@ package converter.Parts_combined;
 
         public String[] hexTo(final String hexadecimalNumber) {
             int decimalNumber;
-            decimalNumber = hex_to_decimal(hexadecimalNumber);
+            decimalNumber = hexadecimalToDecimal(hexadecimalNumber);
             hexadecimalToBinary(decimalNumber);
             hexadecimalToOctal(decimalNumber);
             String[] strAr2 = new String[] {String.valueOf(decimalNumber), hexadecimalToBinary(decimalNumber), hexadecimalToOctal(decimalNumber)};
             return strAr2;
         }
-        public static int hex_to_decimal(String s) {
-    
+        public static int hexadecimalToDecimal(String s) {
+
             String digits = "0123456789ABCDEF";
             s = s.toUpperCase();
             int val = 0;
@@ -30,20 +30,20 @@ package converter.Parts_combined;
             int quot;
             int i = 1;
             String s = "";
-            int[] BinaryNumber = new int[100];
+            int[] binaryNumber = new int[100];
             quot = decimalNumber;
             while (quot != 0) {
-                BinaryNumber[i++] = quot % 2;
+                binaryNumber[i++] = quot % 2;
                 quot = quot / 2;
             }
             for (j = i - 1; j > 0; j--) {
-                s+=BinaryNumber[j];
+                s += binaryNumber[j];
             }
         return s;
         }
 
-    private static String hexadecimalToOctal(int decimalNumber) {
-        int i = 1 ;
+    private static String hexadecimalToOctal(final int decimalNumber) {
+        int i = 1;
         int j;
         int quot;
         String s = "";
@@ -54,7 +54,7 @@ package converter.Parts_combined;
             quot = quot / 8;
         }
         for (j = i - 1; j > 0; j--) {
-            s+=octalNumber[j];
+            s += octalNumber[j];
         }
         return s;
     }

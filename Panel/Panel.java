@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import converter.Parts_combined.*;
 
 public class Panel extends JFrame {
-
+    
     private JLabel labelDecNumber = new JLabel("Decimal Number:");
     private JLabel labelBinNumber = new JLabel("Binary Number: ");
     private JLabel labelHexNumber = new JLabel("Hexadecimal Number:");
@@ -94,15 +94,15 @@ public class Panel extends JFrame {
 
         // add the panel to this frame
         add(newPanel);
-       
+
         buttonConvertDecimal.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-                String[] arg = new String[3];
-                DecTo dec = new DecTo();
-                int num;
+                 String[] arg = new String[3];
+                 DecTo dec = new DecTo();
+                 int num;
                 try {
                     num = Integer.parseInt(fieldDecNumber.getText()); }
-                catch (NumberFormatException f){
+                catch (NumberFormatException f) {
                     fieldDecNumber.setText("Input decimal number");
                     return;
                 }
@@ -112,14 +112,14 @@ public class Panel extends JFrame {
                 fieldOctNumber.setText(arg[2]);
             }
         });
-       
+
         buttonConvertBinary.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-                String[] arg = new String[3];
-                BinTo bin = new BinTo();
-                int num;
-                String quot = fieldBinNumber.getText();
-                if(!quot.matches("[01]+")) {
+                 String[] arg = new String[3];
+                 BinTo bin = new BinTo();
+                 int num;
+                 String quot = fieldBinNumber.getText();
+                if (!quot.matches("[01]+")) {
                     fieldBinNumber.setText("Input binary number");
                     return;
                 }
@@ -129,14 +129,14 @@ public class Panel extends JFrame {
                 fieldHexNumber.setText(arg[1]);
                 fieldOctNumber.setText(arg[2]);
             }
-        }); 
+        });
 
        buttonConvertHexadecimal.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-                String[] arg = new String[3];
-                HexTo hex = new HexTo();
-                String num = fieldHexNumber.getText();
-                if (!num.matches("[0-9A-F]+$")){
+                 String[] arg = new String[3];
+                 HexTo hex = new HexTo();
+                 String num = fieldHexNumber.getText();
+                if (!num.matches("[0-9A-F]+$")) {
                     fieldHexNumber.setText("Input Hexadecimal number");
                     return;
                 }
@@ -148,15 +148,15 @@ public class Panel extends JFrame {
         });
         buttonConvertOctal.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-                String[] arg = new String[3];
-                OctTo oct = new OctTo();
-                int num;
-                String quot = fieldOctNumber.getText();
+                 String[] arg = new String[3];
+                 OctTo oct = new OctTo();
+                 int num;
+                 String quot = fieldOctNumber.getText();
                 num = Integer.parseInt(quot);
-                //if(quot.matches("[0-8]+$")) {
-                //    fieldOctNumber.setText("Input octal number");
-                //    return;
-                //}
+                if (quot.matches("[0-8]+$")) {
+                   fieldOctNumber.setText("Input octal number");
+                   return;
+                }
                 arg = oct.octTo(num);
                 fieldDecNumber.setText(arg[0]);
                 fieldBinNumber.setText(arg[1]);
